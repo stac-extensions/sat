@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.0.0] - 2021-03-04
+
 ### Added
 
 - Added additional acquisition parameters ([#894](https://github.com/radiantearth/stac-spec/pull/894))
@@ -13,12 +15,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `sat:absolute_orbit`
   - `sat:anx_datetime`
 
-### Changed
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-[Unreleased]: <https://github.com/stac-extensions/template/compare/v1.0.0...HEAD>
+[Unreleased]: <https://github.com/stac-extensions/sat/compare/v1.0.0...HEAD>
+[v1.0.0]: <https://github.com/stac-extensions/sat/tree/v1.0.0>
