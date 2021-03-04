@@ -1,6 +1,5 @@
 # Satellite Extension Specification
 
-
 - **Title:** Satellite
 - **Identifier:** <https://stac-extensions.github.io/sat/v1.0.0/schema.json>
 - **Field Name Prefix:** sat
