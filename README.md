@@ -6,10 +6,11 @@
 - **Scope:** Item
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
 - **Owner**: @emmanuelmathot
+- **History**: [Prior to March 2, 2021](https://github.com/radiantearth/stac-spec/commits/v1.0.0-rc.1/extensions/sat)
 
 This document explains the Satellite Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC) specification.
-It adds metadata related to a satellite that carries an instrument for collecting data. It will often be combined with other 
-extensions that describe the actual data, such as the [EO](https://github.com/radiantearth/stac-spec/tree/master/extensions/eo) or 
+It adds metadata related to a satellite that carries an instrument for collecting data.
+It will often be combined with other extensions that describe the actual data, such as the [EO](https://github.com/radiantearth/stac-spec/tree/master/extensions/eo) or 
 [SAR](https://github.com/stac-extensions/sar) extensions.
 
 - Examples:
@@ -20,13 +21,13 @@ extensions that describe the actual data, such as the [EO](https://github.com/ra
 
 ## Item Properties
 
-| Field Name       | Type                     | Description |
-| ---------------- | ------------------------ | ----------- |
-| sat:platform_international_designator | string | The International Designator, also known as COSPAR ID, and NSSDCA ID |
-| sat:orbit_state        | string        | The state of the orbit. Either `ascending` or `descending` for polar orbiting satellites, or `geostationary` for geosynchronous satellites |
-| sat:absolute_orbit     | integer       | The obsolute orbit number at the time of acquisition. |
-| sat:relative_orbit     | integer       | The relative orbit number at the time of acquisition. |
-| sat:anx_datetime      | string       | The [Ascending Node](https://en.wikipedia.org/wiki/Orbital_node) Crossing (ANX) time, in UTC. It is formatted according to [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6). |
+| Field Name                            | Type    | Description |
+| ------------------------------------- | ------- | ----------- |
+| sat:platform_international_designator | string  | The International Designator, also known as COSPAR ID, and NSSDCA ID |
+| sat:orbit_state                       | string  | The state of the orbit. Either `ascending` or `descending` for polar orbiting satellites, or `geostationary` for geosynchronous satellites |
+| sat:absolute_orbit                    | integer | The obsolute orbit number at the time of acquisition.        |
+| sat:relative_orbit                    | integer | The relative orbit number at the time of acquisition.        |
+| sat:anx_datetime                      | string  | The [Ascending Node](https://en.wikipedia.org/wiki/Orbital_node) Crossing (ANX) time, in UTC. It is formatted according to [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6). |
 
 *At least one of the fields must be specified.*
 
