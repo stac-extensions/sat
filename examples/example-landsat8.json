@@ -1,7 +1,7 @@
 {
   "stac_version": "1.0.0-rc.1",
   "stac_extensions": [
-    "sat",
+    "https://stac-extensions.github.io/sat/v1.0.0/schema.json",
     "view"
   ],
   "id": "LC08_L1TP_107018_20181001",

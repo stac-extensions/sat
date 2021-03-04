@@ -2,7 +2,7 @@
   "stac_version": "1.0.0-rc.1",
   "stac_extensions": [
     "https://stac-extensions.github.io/sar/v1.0.0/schema.json",
-    "sat"
+    "https://stac-extensions.github.io/sat/v1.0.0/schema.json"
   ],
   "id": "S1A_IW_SLC__1SDV_20150305T051937_20150305T052005_004892_006196_ABBB",
   "type": "Feature",
