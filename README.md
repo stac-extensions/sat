@@ -14,8 +14,8 @@ extensions that describe the actual data, such as the [EO](https://github.com/ra
 [SAR](https://github.com/stac-extensions/sar) extensions.
 
 - Examples:
-  - [Item example](examples/item.json): Shows the basic usage of the extension in a STAC Item
-  - [Collection example](examples/collection.json): Shows the basic usage of the extension in a STAC Collection
+  - [example-landsat8.json](examples/example-landsat8.json): Shows the basic usage of the extension in a STAC Item
+  - [example-sentinel1.json](examples/example-sentinel1.json): Shows the more advanced usage of the extension in a STAC Collection
 - [JSON Schema](json-schema/schema.json)
 - [Changelog](./CHANGELOG.md)
 
