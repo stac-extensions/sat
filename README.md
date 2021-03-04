@@ -1,4 +1,4 @@
-# Template Extension Specification
+# Satellite Extension Specification
 
 
 - **Title:** Satellite
