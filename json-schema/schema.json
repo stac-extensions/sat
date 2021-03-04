@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://stac-extensions.github.io/template/v1.0.0/schema.json#",
-  "title": "Template Extension",
-  "description": "STAC Template Extension for STAC Items and STAC Collections.",
+  "title": "Satellite Extension",
+  "description": "STAC Sat Extension to a STAC Item.",
   "oneOf": [
     {
       "$comment": "This is the schema for STAC Items.",
@@ -21,9 +21,12 @@
             "properties": {
               "allOf": [
                 {
-                  "$comment": "Require fields here for item properties.",
-                  "required": [
-                    "template:new_field"
+                  "anyOf": [
+                    {"required": ["sat:platform_international_designator"]},
+                    {"required": ["sat:orbit_state"]},
+                    {"required": ["sat:absolute_orbit"]},
+                    {"required": ["sat:relative_orbit"]},
+                    {"required": ["sat:anx_datetime"]}
                   ]
                 },
                 {
@@ -89,47 +92,43 @@
         "stac_extensions": {
           "type": "array",
           "contains": {
-            "const": "https://stac-extensions.github.io/template/v1.0.0/schema.json"
+            "const": "https://stac-extensions.github.io/sat/v1.0.0/schema.json"
           }
         }
       }
     },
     "fields": {
-      "$comment": "Add your new fields here. Don't require them here, do that above in the item schema.",
       "type": "object",
       "properties": {
-        "template:new_field": {
-          "type": "string"
-        },
-        "template:xyz": {
-          "type": "object",
-          "required": [
-            "x",
-            "y",
-            "z"
-          ],
-          "properties": {
-            "x": {
-              "type": "number"
+            "sat:platform_international_designator": {
+              "type": "string"
             },
-            "y": {
-              "type": "number"
+            "sat:orbit_state": {
+              "title": "Orbit State",
+              "type": "string",
+              "enum": [
+                "ascending",
+                "descending",
+                "geostationary"
+              ]
             },
-            "z": {
-              "type": "number"
+            "sat:absolute_orbit": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "sat:relative_orbit": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "sat:anx_datetime": {
+              "type": "string",
+              "format": "date-time"
             }
-          }
-        }, 
-        "template:another_one": {
-          "type": "array", 
-          "items": {
-            "type": "number"
-          }
         }
       },
       "patternProperties": {
-        "^(?!template:)": {
-          "$comment": "Above, change `template` to the prefix of this extension",
+        "^(?!sat:)": {
+          "$comment": "Do not allow unspecified fields prefixed with sat:",
         }
       },
       "additionalProperties": false
