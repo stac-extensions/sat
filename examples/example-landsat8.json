@@ -1,8 +1,8 @@
 {
-  "stac_version": "1.0.0-rc.1",
+  "stac_version": "1.0.0-rc.2",
   "stac_extensions": [
     "https://stac-extensions.github.io/sat/v1.0.0/schema.json",
-    "view"
+    "https://stac-extensions.github.io/view/v1.0.0/schema.json"
   ],
   "id": "LC08_L1TP_107018_20181001",
   "collection": "landsat-8-l1",
