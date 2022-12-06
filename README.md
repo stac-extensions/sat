@@ -25,7 +25,7 @@ It will often be combined with other extensions that describe the actual data, s
 | ------------------------------------- | ------- | ----------- |
 | sat:platform_international_designator | string  | The International Designator, also known as COSPAR ID, and NSSDCA ID |
 | sat:orbit_state                       | string  | The state of the orbit. Either `ascending` or `descending` for polar orbiting satellites, or `geostationary` for geosynchronous satellites |
-| sat:absolute_orbit                    | integer | The obsolute orbit number at the time of acquisition.        |
+| sat:absolute_orbit                    | integer | The absolute orbit number at the time of acquisition.        |
 | sat:relative_orbit                    | integer | The relative orbit number at the time of acquisition.        |
 | sat:anx_datetime                      | string  | The [Ascending Node](https://en.wikipedia.org/wiki/Orbital_node) Crossing (ANX) time, in UTC. It is formatted according to [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6). |
 
