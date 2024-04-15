@@ -21,13 +21,14 @@ It will often be combined with other extensions that describe the actual data, s
 
 ## Item Properties
 
-| Field Name                            | Type    | Description |
-| ------------------------------------- | ------- | ----------- |
-| sat:platform_international_designator | string  | The International Designator, also known as COSPAR ID, and NSSDCA ID |
-| sat:orbit_state                       | string  | The state of the orbit. Either `ascending` or `descending` for polar orbiting satellites, or `geostationary` for geosynchronous satellites |
-| sat:absolute_orbit                    | integer | The absolute orbit number at the time of acquisition.        |
-| sat:relative_orbit                    | integer | The relative orbit number at the time of acquisition.        |
+| Field Name                            | Type    | Description                                                                                                                                                                                          |
+| ------------------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sat:platform_international_designator | string  | The International Designator, also known as COSPAR ID, and NSSDCA ID                                                                                                                                 |
+| sat:orbit_state                       | string  | The state of the orbit. Either `ascending` or `descending` for polar orbiting satellites, or `geostationary` for geosynchronous satellites                                                           |
+| sat:absolute_orbit                    | integer | The absolute orbit number at the time of acquisition.                                                                                                                                                |
+| sat:relative_orbit                    | integer | The relative orbit number at the time of acquisition.                                                                                                                                                |
 | sat:anx_datetime                      | string  | The [Ascending Node](https://en.wikipedia.org/wiki/Orbital_node) Crossing (ANX) time, in UTC. It is formatted according to [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6). |
+| sat:cycle                             | integer | The repeat cycle of the satellite.                                                                                                                                                                   |
 
 *At least one of the fields must be specified.*
 
@@ -65,6 +66,12 @@ heliocentric orbits, the ascending node (or north node) is where the orbiting ob
 reference. Used to quickly compute orbital parameters without having to download the product. For instance to compute on the 
 fly a baseline between 2 satellite acquisition, to find the best candidate in the archive from a post-disaster event (e.g 
 earthquake) scene acquisition for a DInSAR processing.
+
+#### sat:cycle
+
+The repeat cycle of the satellite. The repeat cycle is the number of orbits required for the satellite to return to the same
+position in its orbit. It is used to determine the relative orbit number. For instance, a satellite with a 16-day repeat cycle
+will have 16 relative orbits.
 
 ## Contributing
 

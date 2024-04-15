@@ -46,6 +46,11 @@
                       "required": [
                         "sat:anx_datetime"
                       ]
+                    },
+                    {
+                      "required": [
+                        "sat:cycle"
+                      ]
                     }
                   ]
                 },
@@ -140,6 +145,10 @@
         "sat:anx_datetime": {
           "type": "string",
           "format": "date-time"
+        },
+        "sat:cycle": {
+          "type": "integer",
+          "minimum": 1
         }
       },
       "patternProperties": {
