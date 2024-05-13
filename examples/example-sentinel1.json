@@ -54,6 +54,7 @@
     "sat:absolute_orbit": 4892,
     "sat:relative_orbit": 95,
     "sat:anx_datetime": "2015-03-05T04:41:46.5788740Z",
+    "sat:cycle": 407,
     "sar:instrument_mode": "IW",
     "sar:polarizations": [
       "VV",
