@@ -54,7 +54,7 @@
     "sat:absolute_orbit": 4892,
     "sat:relative_orbit": 95,
     "sat:anx_datetime": "2015-03-05T04:41:46.5788740Z",
-    "sat:cycle": 407,
+    "sat:orbit_cycle": 407,
     "sat:orbit_state_vectors": {
       "2015-03-05T05:19:40.103Z": [
         5082939.4189831074,

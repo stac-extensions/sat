@@ -28,7 +28,7 @@ It will often be combined with other extensions that describe the actual data, s
 | sat:absolute_orbit                    | integer                 | The absolute orbit number at the time of acquisition.                                                                                                                                                   |
 | sat:relative_orbit                    | integer                 | The relative orbit number at the time of acquisition.                                                                                                                                                   |
 | sat:anx_datetime                      | string                  | The [Ascending Node](https://en.wikipedia.org/wiki/Orbital_node) Crossing (ANX) time, in UTC. It is formatted according to [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6).    |
-| sat:cycle                             | integer                 | The number of repeat cycle done by the satellite at the time of the acquisition. [Repeat cycle](https://ltb.itc.utwente.nl/page/498/concept/81577) is the time between two successive identical orbits. |
+| sat:orbit_cycle                       | integer                 | The number of repeat cycle done by the satellite at the time of the acquisition. [Repeat cycle](https://ltb.itc.utwente.nl/page/498/concept/81577) is the time between two successive identical orbits. |
 | sat:orbit_state_vectors               | Map<string, double[][]> | The state vectors of the satellite at the time of acquisition.                                                                                                                                          |
 
 *At least one of the fields must be specified.*
@@ -68,7 +68,7 @@ reference. Used to quickly compute orbital parameters without having to download
 fly a baseline between 2 satellite acquisition, to find the best candidate in the archive from a post-disaster event (e.g 
 earthquake) scene acquisition for a DInSAR processing.
 
-#### sat:cycle
+#### sat:orbit_cycle
 
 The repeat cycle of the satellite. The repeat cycle is the number of orbits required for the satellite to return to the same
 position in its orbit. It is used to determine the relative orbit number. For instance, a satellite with a 16-day repeat cycle
