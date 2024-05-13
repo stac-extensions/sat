@@ -49,7 +49,7 @@
                     },
                     {
                       "required": [
-                        "sat:cycle"
+                        "sat:orbit_cycle"
                       ]
                     }
                   ]
@@ -146,7 +146,7 @@
           "type": "string",
           "format": "date-time"
         },
-        "sat:cycle": {
+        "sat:orbit_cycle": {
           "type": "integer",
           "minimum": 1
         }
