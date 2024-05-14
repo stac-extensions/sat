@@ -51,6 +51,11 @@
                       "required": [
                         "sat:orbit_cycle"
                       ]
+                    },
+                    {
+                      "required": [
+                        "sat:orbit_state_vectors"
+                      ]
                     }
                   ]
                 },
@@ -149,6 +154,20 @@
         "sat:orbit_cycle": {
           "type": "integer",
           "minimum": 1
+        },
+        "sat:orbit_state_vectors": {
+          "type": "object",
+          "patternProperties": {
+            "^.*$": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 6,
+              "maxItems": 9
+            }
+          },
+          "additionalProperties": false
         }
       },
       "patternProperties": {
