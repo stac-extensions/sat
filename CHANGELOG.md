@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Added `orbit_cycle` field ([#6](https://github.com/stac-extensions/sat/issues/6))
+- Added `sat:anx_start_offset` and `sat:anx_end_offset` fields
 
 ### Changed
 
