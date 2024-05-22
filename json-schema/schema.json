@@ -126,13 +126,21 @@
           "type": "integer",
           "minimum": 1
         },
+        "sat:orbit_cycle": {
+          "type": "integer",
+          "minimum": 1
+        },
         "sat:anx_datetime": {
           "type": "string",
           "format": "date-time"
         },
-        "sat:orbit_cycle": {
-          "type": "integer",
-          "minimum": 1
+        "sat:anx_start_offset": {
+          "type": "number",
+          "minimum": 0
+        },
+        "sat:anx_end_offset": {
+          "type": "number",
+          "minimum": 0
         }
       },
       "patternProperties": {
@@ -140,7 +148,32 @@
           "$comment": "Do not allow unspecified fields prefixed with sat:"
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "if": {
+        "oneOf": [
+          {
+            "required": [
+              "sat:anx_start_offset"
+            ],
+            "properties": {
+              "sat:anx_start_offset": {}
+            }
+          },
+          {
+            "required": [
+              "sat:anx_end_offset"
+            ],
+            "properties": {
+              "sat:anx_end_offset": {}
+            }
+          }
+        ]
+      },
+      "then": {
+        "required": [
+          "sat:anx_datetime"
+        ]
+      }
     }
   }
 }
