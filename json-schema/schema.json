@@ -3,127 +3,111 @@
   "$id": "https://stac-extensions.github.io/sat/v1.0.0/schema.json",
   "title": "Satellite Extension",
   "description": "STAC Sat Extension to a STAC Item.",
+  "type": "object",
+  "required": [
+    "stac_extensions"
+  ],
+  "properties": {
+    "stac_extensions": {
+      "type": "array",
+      "contains": {
+        "const": "https://stac-extensions.github.io/sat/v1.0.0/schema.json"
+      }
+    }
+  },
   "oneOf": [
     {
       "$comment": "This is the schema for STAC Items.",
-      "allOf": [
-        {
-          "type": "object",
-          "required": [
-            "type",
-            "properties",
-            "assets"
-          ],
-          "properties": {
-            "type": {
-              "const": "Feature"
-            },
-            "properties": {
-              "allOf": [
+      "type": "object",
+      "required": [
+        "type",
+        "properties",
+        "assets"
+      ],
+      "properties": {
+        "type": {
+          "const": "Feature"
+        },
+        "properties": {
+          "allOf": [
+            {
+              "anyOf": [
                 {
-                  "anyOf": [
-                    {
-                      "required": [
-                        "sat:platform_international_designator"
-                      ]
-                    },
-                    {
-                      "required": [
-                        "sat:orbit_state"
-                      ]
-                    },
-                    {
-                      "required": [
-                        "sat:absolute_orbit"
-                      ]
-                    },
-                    {
-                      "required": [
-                        "sat:relative_orbit"
-                      ]
-                    },
-                    {
-                      "required": [
-                        "sat:anx_datetime"
-                      ]
-                    },
-                    {
-                      "required": [
-                        "sat:orbit_cycle"
-                      ]
-                    },
-                    {
-                      "required": [
-                        "sat:orbit_state_vectors"
-                      ]
-                    }
+                  "required": [
+                    "sat:platform_international_designator"
                   ]
                 },
                 {
-                  "$ref": "#/definitions/fields"
+                  "required": [
+                    "sat:orbit_state"
+                  ]
+                },
+                {
+                  "required": [
+                    "sat:absolute_orbit"
+                  ]
+                },
+                {
+                  "required": [
+                    "sat:relative_orbit"
+                  ]
+                },
+                {
+                  "required": [
+                    "sat:anx_datetime"
+                  ]
+                },
+                {
+                  "required": [
+                    "sat:orbit_cycle"
+                  ]
+                },
+                {
+                  "required": [
+                    "sat:orbit_state_vectors"
+                  ]
                 }
               ]
             },
-            "assets": {
-              "type": "object",
-              "additionalProperties": {
-                "$ref": "#/definitions/fields"
-              }
+            {
+              "$ref": "#/definitions/fields"
             }
-          }
+          ]
         },
-        {
-          "$ref": "#/definitions/stac_extensions"
-        }
-      ]
-    },
-    {
-      "$comment": "This is the schema for STAC Collections.",
-      "allOf": [
-        {
+        "assets": {
           "type": "object",
-          "required": [
-            "type"
-          ],
-          "properties": {
-            "type": {
-              "const": "Collection"
-            },
-            "assets": {
-              "type": "object",
-              "additionalProperties": {
-                "$ref": "#/definitions/fields"
-              }
-            },
-            "item_assets": {
-              "type": "object",
-              "additionalProperties": {
-                "$ref": "#/definitions/fields"
-              }
-            }
-          }
-        },
-        {
-          "$ref": "#/definitions/stac_extensions"
-        }
-      ]
-    }
-  ],
-  "definitions": {
-    "stac_extensions": {
-      "type": "object",
-      "required": [
-        "stac_extensions"
-      ],
-      "properties": {
-        "stac_extensions": {
-          "type": "array",
-          "contains": {
-            "const": "https://stac-extensions.github.io/sat/v1.0.0/schema.json"
+          "additionalProperties": {
+            "$ref": "#/definitions/fields"
           }
         }
       }
     },
+    {
+      "$comment": "This is the schema for STAC Collections.",
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "const": "Collection"
+        },
+        "assets": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/fields"
+          }
+        },
+        "item_assets": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/fields"
+          }
+        }
+      }
+    }
+  ],
+  "definitions": {
     "fields": {
       "type": "object",
       "properties": {
