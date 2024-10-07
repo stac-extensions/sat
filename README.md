@@ -29,7 +29,7 @@ It will often be combined with other extensions that describe the actual data, s
 | sat:relative_orbit                    | integer               | The relative orbit number at the time of acquisition.                                                                                                                                                   |
 | sat:anx_datetime                      | string                | The [Ascending Node](https://en.wikipedia.org/wiki/Orbital_node) Crossing (ANX) time, in UTC. It is formatted according to [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6).    |
 | sat:orbit_cycle                       | integer               | The number of repeat cycle done by the satellite at the time of the acquisition. [Repeat cycle](https://ltb.itc.utwente.nl/page/498/concept/81577) is the time between two successive identical orbits. |
-| sat:orbit_state_vectors               | Map<string, double[]> | The state vectors of the satellite at the time of acquisition.                                                                                                                                          |
+| sat:orbit_state_vectors               | Map<string, \[number]> | The state vectors of the satellite at the time of acquisition.                                                                                                                                          |
 
 *At least one of the fields must be specified.*
 
