@@ -117,7 +117,7 @@ Example:
 }
 ```
 
-Optionaly, the state vectors can be provided in a separate file and referenced as a link with relationship type `sat:osv`.
+It is recommended that the state vectors are provided in a separate file and referenced as a link with relationship type `sat:osv`. The file should correspond to the example above.
 
 ## Relation types
 
