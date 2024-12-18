@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Added `orbit_cycle` field ([#6](https://github.com/stac-extensions/sat/issues/6))
+- Added sat:orbit_state_vectors field ([#8](https://github.com/stac-extensions/sat/issues/8))
 
 ### Changed
 

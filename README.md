@@ -21,14 +21,15 @@ It will often be combined with other extensions that describe the actual data, s
 
 ## Item Properties
 
-| Field Name                            | Type    | Description                                                                                                                                                                                             |
-| ------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sat:platform_international_designator | string  | The International Designator, also known as COSPAR ID, and NSSDCA ID                                                                                                                                    |
-| sat:orbit_state                       | string  | The state of the orbit. Either `ascending` or `descending` for polar orbiting satellites, or `geostationary` for geosynchronous satellites                                                              |
-| sat:orbit_cycle                       | integer | The number of repeat cycle done by the satellite at the time of the acquisition. [Repeat cycle](https://ltb.itc.utwente.nl/page/498/concept/81577) is the time between two successive identical orbits. |
-| sat:absolute_orbit                    | integer | The absolute orbit number at the time of acquisition.                                                                                                                                                   |
-| sat:relative_orbit                    | integer | The relative orbit number at the time of acquisition.                                                                                                                                                   |
-| sat:anx_datetime                      | string  | The [Ascending Node](https://en.wikipedia.org/wiki/Orbital_node) Crossing (ANX) time, in UTC. It is formatted according to [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6).    |
+| Field Name                            | Type                  | Description                                                                                                                                                                                             |
+| ------------------------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sat:platform_international_designator | string                | The International Designator, also known as COSPAR ID, and NSSDCA ID                                                                                                                                    |
+| sat:orbit_state                       | string                | The state of the orbit. Either `ascending` or `descending` for polar orbiting satellites, or `geostationary` for geosynchronous satellites                                                              |
+| sat:absolute_orbit                    | integer               | The absolute orbit number at the time of acquisition.                                                                                                                                                   |
+| sat:relative_orbit                    | integer               | The relative orbit number at the time of acquisition.                                                                                                                                                   |
+| sat:orbit_cycle                       | integer               | The number of repeat cycle done by the satellite at the time of the acquisition. [Repeat cycle](https://ltb.itc.utwente.nl/page/498/concept/81577) is the time between two successive identical orbits. |
+| sat:orbit_state_vectors               | Map<string, \[number]> | The state vectors of the satellite at the time of acquisition.                                                                                                                                         |
+| sat:anx_datetime                      | string                | The [Ascending Node](https://en.wikipedia.org/wiki/Orbital_node) Crossing (ANX) time, in UTC. It is formatted according to [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6).    |
 
 *At least one of the fields must be specified.*
 
@@ -72,6 +73,61 @@ earthquake) scene acquisition for a DInSAR processing.
 The repeat cycle of the satellite. The repeat cycle is the number of orbits required for the satellite to return to the same
 position in its orbit. It is used to determine the relative orbit number. For instance, a satellite with a 16-day repeat cycle
 will have 16 relative orbits.
+
+#### sat:orbit_state_vectors
+
+The state vectors of the satellite at the time of acquisition. The state vectors are a set of parameters that describe the
+position and velocity of the satellite at a given time. The state vectors are used to compute the position of the satellite
+at any time during the acquisition. 
+The state vectors are usually provided in the [ECI](https://en.wikipedia.org/wiki/Earth-centered_inertial) frame.
+The field is a map where the key is the time of the state vector and the value is an array of 6 elements (optional 9).
+The first 3 elements are the position of the satellite in meters and the last 3 elements are the velocity of the satellite in meters per second.
+The optional 3 additional elements are the acceleration of the satellite in meters per second squared.
+
+Example:
+
+```json
+{
+  "sat:orbit_state_vectors": {
+    "2015-03-05T05:19:40.103Z": [
+      5082939.4189831074,
+      1595651.7369050409,
+      4648033.5588545678,
+      5173.8779329387489,
+      -269.5432365485845,
+      -5550.246440359806
+    ],
+    "2015-03-05T05:19:45.449Z": [
+      5110519.0376543682,
+      1594174.328112772,
+      4618284.7202579351,
+      5143.1200754073143,
+      -283.12343661734587,
+      -5578.2160610647188
+    ],
+    "2015-03-05T05:19:50.449Z": [
+      5136162.3887853986,
+      1592727.024757518,
+      4590328.5904560406,
+      5114.1961953273549,
+      -295.79384304587683,
+      -5604.2108611458289
+    ]
+  }
+}
+```
+
+It is recommended that the state vectors are provided in a separate file and referenced as a link with relationship type `sat:osv`.
+The file should correspond to the example above.
+
+## Relation types
+
+The following types should be used as applicable `rel` types in the
+[Link Object](https://github.com/radiantearth/stac-spec/tree/master/item-spec/item-spec.md#link-object).
+
+| Type    | Description                                        |
+| ------- | -------------------------------------------------- |
+| sat:osv | Link to a file containing the orbit state vectors. |
 
 ## Contributing
 

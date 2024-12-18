@@ -61,6 +61,11 @@
                   "required": [
                     "sat:orbit_cycle"
                   ]
+                },
+                {
+                  "required": [
+                    "sat:orbit_state_vectors"
+                  ]
                 }
               ]
             },
@@ -133,6 +138,21 @@
         "sat:orbit_cycle": {
           "type": "integer",
           "minimum": 1
+        },
+        "sat:orbit_state_vectors": {
+          "type": "object",
+          "$comment": "The key is a date-time string, and the value is an array of numbers.",
+          "patternProperties": {
+            "^(\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d:[0-5]\\d\\.\\d+([+-][0-2]\\d:[0-5]\\d|Z))|(\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z))|(\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z))$": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 6,
+              "maxItems": 9
+            }
+          },
+          "additionalProperties": false
         }
       },
       "patternProperties": {
