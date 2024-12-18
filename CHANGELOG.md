@@ -8,14 +8,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Added `orbit_cycle` field ([#6](https://github.com/stac-extensions/sat/issues/6))
-- Added sat:orbit_state_vectors field ([#8](https://github.com/stac-extensions/sat/issues/8))
-
 ### Changed
 
 ### Deprecated
 
 ### Removed
+
+### Fixed
+
+## [v1.1.0] - 2024-12-19
+
+### Added
+
+- Added `orbit_cycle` field ([#6](https://github.com/stac-extensions/sat/issues/6))
+- Added sat:orbit_state_vectors field ([#8](https://github.com/stac-extensions/sat/issues/8))
 
 ### Fixed
 
@@ -30,5 +36,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `sat:absolute_orbit`
   - `sat:anx_datetime`
 
-[Unreleased]: <https://github.com/stac-extensions/sat/compare/v1.0.0...HEAD>
+[Unreleased]: <https://github.com/stac-extensions/sat/compare/v1.1.0...HEAD>
+[v1.1.0]: <https://github.com/stac-extensions/sat/compare/v1.0.0...v1.1.0>
 [v1.0.0]: <https://github.com/stac-extensions/sat/tree/v1.0.0>
