@@ -124,10 +124,14 @@
           ]
         },
         "sat:absolute_orbit": {
+          "title": "Absolute Orbit",
+          "description": "The absolute orbit number at the start of acquisition. When the orbit changes during data acquisition (i.e., the acquisition spans multiple orbits), use the absolute orbit number at the start of the acquisition.",
           "type": "integer",
           "minimum": 1
         },
         "sat:relative_orbit": {
+          "title": "Relative Orbit",
+          "description": "The relative orbit number at the start of acquisition. When the orbit changes during data acquisition (i.e., the acquisition spans multiple orbits), use the relative orbit number at the start of the acquisition.",
           "type": "integer",
           "minimum": 1
         },
