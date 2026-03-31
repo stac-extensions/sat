@@ -100,7 +100,7 @@
   "assets": {
     "noises_iw1_vh": {
       "href": "./annotation/calibration/noise-s1a-iw1-slc-vh-20150305t051939-20150305t052005-004892-006196-001.xml",
-      "title": "Calibration Schema",
+      "title": "Noise Schema",
       "type": "text/xml",
       "sar:polarizations": [
         "VH"
@@ -108,7 +108,7 @@
     },
     "calibrations_iw1_vh": {
       "href": "./annotation/calibration/calibration-s1a-iw1-slc-vh-20150305t051939-20150305t052005-004892-006196-001.xml",
-      "title": "Noise Schema",
+      "title": "Calibration Schema",
       "type": "text/xml",
       "sar:polarizations": [
         "VH"
