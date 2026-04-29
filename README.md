@@ -4,7 +4,7 @@
 - **Identifier:** <https://stac-extensions.github.io/sat/v1.2.0/schema.json>
 - **Field Name Prefix:** sat
 - **Scope:** Item, Collection
-- **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Candidate
+- **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Stable
 - **Owner**: @emmanuelmathot
 - **History**: [Prior to March 2, 2021](https://github.com/radiantearth/stac-spec/commits/v1.0.0-rc.1/extensions/sat)
 
