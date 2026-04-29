@@ -120,7 +120,8 @@
           "enum": [
             "ascending",
             "descending",
-            "geostationary"
+            "geostationary",
+            "crossing"
           ]
         },
         "sat:absolute_orbit": {
