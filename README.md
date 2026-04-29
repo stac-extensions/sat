@@ -24,7 +24,7 @@ It will often be combined with other extensions that describe the actual data, s
 | Field Name                            | Type                  | Description                                                                                                                                                                                             |
 | ------------------------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | sat:platform_international_designator | string                | The International Designator, also known as COSPAR ID, and NSSDCA ID                                                                                                                                    |
-| sat:orbit_state                       | string                | The state of the orbit. Either `ascending` or `descending` for polar orbiting satellites, or `geostationary` for geosynchronous satellites                                                              |
+| sat:orbit_state                       | string                | The state of the orbit. Either `ascending` or `descending` for polar orbiting satellites, `geostationary` for geosynchronous satellites, or `crossing` when the acquisition spans a polar crossing.     |
 | sat:absolute_orbit                    | integer               | The absolute orbit number at the start of acquisition.                                                                                                                                                  |
 | sat:relative_orbit                    | integer               | The relative orbit number at the start of acquisition.                                                                                                                                                  |
 | sat:orbit_cycle                       | integer               | The number of repeat cycle done by the satellite at the time of the acquisition. [Repeat cycle](https://ltb.itc.utwente.nl/page/498/concept/81577) is the time between two successive identical orbits. |
@@ -42,9 +42,11 @@ and is an international identifier assigned to artificial objects in space.
 
 #### sat:orbit_state
 
-Indicates the type and current state of orbit. Satellites are either geosynchronous in which case they have one state: 
-`geostationary`, or they are sun synchronous (i.e., polar orbiting satellites) in which case they are either `ascending` or 
+Indicates the type and current state of orbit. Satellites are either geosynchronous in which case they have one state:
+`geostationary`, or they are sun synchronous (i.e., polar orbiting satellites) in which case they are either `ascending` or
 `descending`. For sun synchronous satellites it is daytime during one of these states, and nighttime during the other.
+If the acquisition spans a polar crossing (i.e., the satellite transitions between ascending and descending during the
+acquisition), the value `crossing` shall be used.
 
 #### sat:absolute_orbit
 
