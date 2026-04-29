@@ -81,6 +81,7 @@
         -5604.210861145829
       ]
     },
+    "sat:acquisition_station": "PDGS Matera",
     "sar:instrument_mode": "IW",
     "sar:polarizations": [
       "VV",

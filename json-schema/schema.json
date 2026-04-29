@@ -66,6 +66,11 @@
                   "required": [
                     "sat:orbit_state_vectors"
                   ]
+                },
+                {
+                  "required": [
+                    "sat:acquisition_station"
+                  ]
                 }
               ]
             },
@@ -158,6 +163,9 @@
             }
           },
           "additionalProperties": false
+        },
+        "sat:acquisition_station": {
+          "type": "string"
         }
       },
       "patternProperties": {

@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Added `crossing` value to `sat:orbit_state` for acquisitions spanning a polar crossing ([#1](https://github.com/stac-extensions/sat/issues/1))
+- Added `sat:acquisition_station` field ([#12](https://github.com/stac-extensions/sat/issues/12))
 
 ### Changed
 

@@ -51,6 +51,7 @@
     ],
     "constellation": "landsat",
     "sat:orbit_state": "ascending",
+    "sat:acquisition_station": "LGS",
     "view:off_nadir": 0
   },
   "assets": {
