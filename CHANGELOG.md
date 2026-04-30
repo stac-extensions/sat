@@ -8,9 +8,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Added `crossing` value to `sat:orbit_state` for acquisitions spanning a polar crossing ([#1](https://github.com/stac-extensions/sat/issues/1))
-- Added `sat:acquisition_station` field ([#12](https://github.com/stac-extensions/sat/issues/12))
-
 ### Changed
 
 ### Deprecated
@@ -18,6 +15,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 ### Fixed
+
+## [v1.2.0] - 2026-04-29
+
+### Added
+
+- Added `crossing` value to `sat:orbit_state` for acquisitions spanning a polar crossing ([#1](https://github.com/stac-extensions/sat/issues/1))
+- Added `sat:acquisition_station` field ([#12](https://github.com/stac-extensions/sat/issues/12))
 
 ## [v1.1.0] - 2024-12-19
 
@@ -39,6 +43,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `sat:absolute_orbit`
   - `sat:anx_datetime`
 
-[Unreleased]: <https://github.com/stac-extensions/sat/compare/v1.1.0...HEAD>
+[Unreleased]: <https://github.com/stac-extensions/sat/compare/v1.2.0...HEAD>
+[v1.2.0]: <https://github.com/stac-extensions/sat/compare/v1.1.0...v1.2.0>
 [v1.1.0]: <https://github.com/stac-extensions/sat/compare/v1.0.0...v1.1.0>
 [v1.0.0]: <https://github.com/stac-extensions/sat/tree/v1.0.0>
