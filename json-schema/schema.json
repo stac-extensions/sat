@@ -71,6 +71,16 @@
                   "required": [
                     "sat:acquisition_station"
                   ]
+                },
+                {
+                  "required": [
+                    "sat:datatake_id"
+                  ]
+                },
+                {
+                  "required": [
+                    "sat:datastrip_id"
+                  ]
                 }
               ]
             },
@@ -166,6 +176,18 @@
         },
         "sat:acquisition_station": {
           "type": "string"
+        },
+        "sat:datatake_id": {
+          "title": "Datatake ID",
+          "description": "Identifier of the datatake: one continuous acquisition by one instrument in one mode.",
+          "type": "string",
+          "minLength": 1
+        },
+        "sat:datastrip_id": {
+          "title": "Datastrip ID",
+          "description": "Identifier of the datastrip: the part of a datatake received or processed as one unit by one ground station.",
+          "type": "string",
+          "minLength": 1
         }
       },
       "patternProperties": {

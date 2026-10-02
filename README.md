@@ -18,6 +18,7 @@ It will often be combined with other extensions that describe the actual data, s
 - Examples:
   - [example-landsat8.json](examples/example-landsat8.json): Shows the basic usage of the extension in a STAC Item
   - [example-sentinel1.json](examples/example-sentinel1.json): Shows the more advanced usage of the extension in a STAC Collection
+  - [example-sentinel2.json](examples/example-sentinel2.json): Shows the datatake and datastrip identifiers in a STAC Item
 - [JSON Schema](json-schema/schema.json)
 - [Changelog](./CHANGELOG.md)
 
@@ -33,6 +34,8 @@ It will often be combined with other extensions that describe the actual data, s
 | sat:orbit_state_vectors               | Map<string, \[number]> | The state vectors of the satellite at the time of acquisition.                                                                                                                                          |
 | sat:anx_datetime                      | string                 | The [Ascending Node](https://en.wikipedia.org/wiki/Orbital_node) Crossing (ANX) time, in UTC. It is formatted according to [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6).    |
 | sat:acquisition_station               | string                 | The acquisition station (ground station) where the satellite data was downlinked. Equivalent to `eop:acquisition_station` in OGC 10-157r4 and OGC 17-003r2.                                             |
+| sat:datatake_id                       | string                 | Identifier of the datatake: one continuous acquisition by one instrument in one mode.                                                                                                                       |
+| sat:datastrip_id                      | string                 | Identifier of the datastrip: the part of a datatake received or processed as one unit by one ground station.                                                                                                |
 
 *At least one of the fields must be specified.*
 
@@ -139,6 +142,44 @@ The ground station where the satellite data was downlinked. This information is 
 as it identifies the first point of data reception on Earth. In the context of Earth Observation missions, this corresponds to the 
 `eop:acquisitionStation` in OGC standards (10-157r4 and 17-003r2). This field can be used for filtering datasets based on the 
 ground station used for downlinking, which can be relevant for certain processing workflows or quality assessments.
+
+#### sat:datatake_id
+
+The identifier of the datatake. A datatake is one continuous acquisition by one instrument in one mode: it starts when
+the instrument starts to acquire and it stops when the instrument stops. All the Items that come from the same datatake
+have the same value. Thus a client can use this field to find all the Items of one acquisition, for example to make a
+mosaic of adjacent tiles or to find the products of the same acquisition at different processing levels.
+
+The value is an opaque string. Use the identifier that the data provider gives. Do not change its format. If the
+provider gives a number, write it as a string (for example `"79138"`).
+
+Different missions use different names for the datatake and the datastrip:
+
+| Mission                | Datatake term                   | Datastrip term      | Example `sat:datatake_id`                            |
+| ---------------------- | ------------------------------- | ------------------- | ---------------------------------------------------- |
+| Sentinel-1             | Datatake (mission data take ID) | -                   | `79138`                                              |
+| Sentinel-2             | Datatake                        | Datastrip           | `GS2C_20261002T060651_010829_N05.13`                 |
+| Landsat 8 and 9        | Interval                        | Subinterval         | `LC82220010042014265LGN00`                           |
+| TerraSAR-X, TanDEM-X   | Unique datatake ID              | Logical datatake ID | -                                                    |
+| EnMAP                  | Datatake                        | -                   | `0000345780`                                         |
+| DESIS                  | Datatake                        | -                   | `0010357991`                                         |
+| SPOT 1 to 5            | Segment                         | Segment             | `S5_G1_A_DT_200709301703559_CS_001952`               |
+| Pléiades, SPOT 6 and 7 | Data strip                      | Data strip          | `DS_PHR1A_201202191041343_FR1_PX_E005N43_1105_00548` |
+
+#### sat:datastrip_id
+
+The identifier of the datastrip. A datastrip is the part of a datatake that one ground station receives during one pass,
+and that the ground segment processes as one unit. A datatake can have one or more datastrips. For example, a long
+Sentinel-2 datatake can be received by two ground stations, and thus have two datastrips. The Landsat ground segment
+uses the term *subinterval*, and the TerraSAR-X ground segment uses the *logical datatake ID*, for the same concept.
+
+The value is an opaque string. Use the identifier that the data provider gives. Do not change its format.
+
+If a mission does not divide a datatake into datastrips (for example, SPOT 1 to 5, Pléiades, SPOT 6 and 7), the
+datatake and the datastrip are the same unit. In this case, set `sat:datatake_id` and set `sat:datastrip_id` only if
+the provider gives a different identifier for the datastrip.
+
+Use `sat:acquisition_station` to give the ground station that received the datastrip.
 
 ## Relation types
 

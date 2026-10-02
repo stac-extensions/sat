@@ -1,0 +1,68 @@
+{
+  "stac_version": "1.1.0",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/sat/v1.2.0/schema.json"
+  ],
+  "id": "S2C_MSIL1C_20261002T060651_N0513",
+  "type": "Feature",
+  "bbox": [
+    66,
+    40,
+    67.3,
+    41
+  ],
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          66,
+          40
+        ],
+        [
+          67.3,
+          40
+        ],
+        [
+          67.3,
+          41
+        ],
+        [
+          66,
+          41
+        ],
+        [
+          66,
+          40
+        ]
+      ]
+    ]
+  },
+  "properties": {
+    "datetime": "2026-10-02T06:06:51.024Z",
+    "platform": "sentinel-2c",
+    "constellation": "sentinel-2",
+    "instruments": [
+      "msi"
+    ],
+    "sat:orbit_state": "descending",
+    "sat:absolute_orbit": 10829,
+    "sat:datatake_id": "GS2C_20261002T060651_010829_N05.13",
+    "sat:datastrip_id": "S2C_OPER_MSI_L1C_DS_2CPS_20261002T061847_S20261002T060653_N05.13"
+  },
+  "assets": {
+    "data": {
+      "href": "https://example.com/S2C_MSIL1C_20261002T060651_N0513.zarr",
+      "type": "application/vnd+zarr",
+      "roles": [
+        "data"
+      ]
+    }
+  },
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://example.com/collections/sentinel-2-l1c/items/S2C_MSIL1C_20261002T060651_N0513"
+    }
+  ]
+}
